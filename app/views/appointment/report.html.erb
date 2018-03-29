@@ -1,0 +1,12 @@
+<h1>Appointment#report</h1>
+
+<table>
+<% @appointment.each do |app| %>
+  <tr>
+    <td><%= app.fullname %></td>
+    <td><%= app.phone %></td>
+    <td><%= app.appointment_when %></td>
+    <td><%= app.appointment_date %></td>
+  </tr>
+<% end %>
+</table>
