@@ -21,3 +21,6 @@
 /yarn-error.log
 
 .byebug_history
+shared/log/puma.stderr.log
+shared/log/puma.stdout.log
+shared/pids/puma.state
