@@ -1,6 +1,10 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap";
 
-@import "skins/skin-blue";
 
 .content h1 {
   display: inline-block;
