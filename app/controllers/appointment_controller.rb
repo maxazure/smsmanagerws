@@ -14,7 +14,7 @@ class AppointmentController < ApplicationController
 
     addPhoneRecords uploaded_io.read.split("\n")
 
-    redirect_to "/appointment", notice: 'Appointment was successfully uploaded.'
+    redirect_to action: :appointment
   end
 
   def addPhoneRecords(records)
