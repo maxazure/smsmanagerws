@@ -4,7 +4,7 @@ class AppointmentController < ApplicationController
   end
 
   def report
-    @appointment = Appointment.order(id: :desc).limit(50)
+    @appointment = Appointment.where(flag: 0).order(id: :desc).limit(650)
   end
 
 
@@ -12,21 +12,20 @@ class AppointmentController < ApplicationController
     uploaded_io = params[:phonedata]
     filename = Rails.root.join('public', 'uploads', getFileNameByTime())
 
-    addPhoneRecords uploaded_io.read.split("\n")
+    record = addPhoneRecords uploaded_io.read.split("\n")
+    @info ="#{record} records has been uploaded successfully!"
 
-    redirect_to action: :appointment
   end
 
   def addPhoneRecords(records)
     str=""
+    i=0
     records.each do |record|
       next if record.gsub(/\s+/,'').gsub(/;/,'').empty? or record.include? ";;"
       msg = record.gsub(/\r/,'').split ";"
 
       phone_num = msg[1].gsub(/\s+/,'').gsub(/\A64/,'')
       phone_num = "0" + phone_num if phone_num[0,1] != 0
-
-
 
       apt = Appointment.new
       apt.fullname = msg[0]
@@ -38,7 +37,9 @@ class AppointmentController < ApplicationController
       apt.company_id = 1
       apt.flag = 0
       apt.save
+      i=i+1
     end
+    return i
   end
 
   def getFileNameByTime
