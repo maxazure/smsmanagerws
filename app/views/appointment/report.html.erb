@@ -1,4 +1,4 @@
-<h1>Appointment#report</h1>
+<h1>SMS sending report<small>(unsend)</small></h1>
 
 <table>
 <% @appointment.each do |app| %>
@@ -7,6 +7,7 @@
     <td><%= app.phone %></td>
     <td><%= app.appointment_when %></td>
     <td><%= app.appointment_date %></td>
+    <td><%= "unsend" if app.flag==0 %></td>
   </tr>
 <% end %>
 </table>

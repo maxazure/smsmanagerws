@@ -8,16 +8,66 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div id="hd">
-        <div id="nav">
-          <%= link_to "Users" ,"/users" %> |
-          <%= link_to "Companies" ,"/companies" %> |
-          <%= link_to "SMS Templates" ,"/templates" %> |
-          <%= link_to "Upload Data" ,"/appointment" %> |
-          <%= link_to "Appointment" ,"/appointment/report" %> 
-        </div>
-    </div>
+  <body class="hold-transition skin-blue layout-top-nav">
+  <div class="wrapper">
+
+    <header class="main-header">
+
+      <nav class="navbar navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="/" class="navbar-brand"><b>Appointment SMS Management</b></a>
+
+          </div>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <%= link_to "Users" ,"/users" , class: "nav-link" %>
+        </li><li class="nav-item">
+          <%= link_to "Companies" ,"/companies" , class: "nav-link" %>
+          </li><li class="nav-item">
+          <%= link_to "SMS Templates" ,"/templates" , class: "nav-link" %>
+          </li><li class="nav-item">
+          <%= link_to "Upload Data" ,"/appointment" , class: "nav-link" %>
+          </li><li class="nav-item">
+          <%= link_to "Report" ,"/appointment/report" , class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <div class="container">
+    <!-- Main content -->
+         <section class="content">
+
+           <div class="box box-default">
+             <div class="box-body">
+
     <%= yield %>
+
+
+  </div>
+  <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+  </section>
+  <!-- /.content -->
+
+</div>
+</div>
+    <!-- /.content-wrapper -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="https://bestit.co.nz">BestIT</a>.</strong> All rights
+    reserved.
+  </div>
+  <!-- /.container -->
+</footer>
+
+    </div>
   </body>
 </html>

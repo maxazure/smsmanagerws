@@ -4,7 +4,7 @@ class AppointmentController < ApplicationController
   end
 
   def report
-    @appointment = Appointment.all
+    @appointment = Appointment.order(id: :desc).limit(50)
   end
 
 
