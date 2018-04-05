@@ -24,3 +24,7 @@
 shared/log/puma.stderr.log
 shared/log/puma.stdout.log
 shared/pids/puma.state
+.DS_Store
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
