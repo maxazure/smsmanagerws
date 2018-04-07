@@ -5,7 +5,7 @@ class AppointmentController < ApplicationController
   end
 
   def report
-    @appointment = Appointment.where(flag: 0).order(id: :desc).limit(650)
+    @appointment = current_user.appointments.where(flag: 0).order(id: :desc).limit(650)
   end
 
 
