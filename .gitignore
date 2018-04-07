@@ -28,3 +28,5 @@ shared/pids/puma.state
 .DS_Store
 app/.DS_Store
 app/assets/.DS_Store
+*.pid
+Gemfile.lock

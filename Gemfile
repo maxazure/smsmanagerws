@@ -9,9 +9,10 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 gem 'csv'
-
-#gem 'bootstrap'
-gem 'bootstrap-sass'
+gem "clearance"
+gem 'bootstrap'
+gem 'rails_admin'
+#gem 'bootstrap-sass'
 gem 'popper_js', '~> 1.12.9'
 gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record

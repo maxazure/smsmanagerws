@@ -11,9 +11,12 @@ shared_dir = "#{app_dir}/shared"
 rails_env = ENV['RAILS_ENV'] || "development"
 environment rails_env
 
-#port        ENV.fetch("PORT") { 3000 }
+if ENV['RAILS_ENV'] == "development" then
+port        ENV.fetch("PORT") { 3000 }
+else
 # Set up socket location
 bind "unix://#{shared_dir}/sockets/puma.sock"
+end
 
 # Logging
 stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true

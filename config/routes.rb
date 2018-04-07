@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'ws/getphone', to:'webservice#getphone'
   get 'ws/report', to:'webservice#report'
   get 'webservice/report'
@@ -8,13 +9,9 @@ Rails.application.routes.draw do
 
   get 'appointment/report'
 
-  root to: 'session#login'
-
-  get 'session/login'
-  get 'session/logout'
+  root to: "appointment#index"
 
   resources :templates
   resources :companies
-  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
