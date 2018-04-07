@@ -33,7 +33,7 @@ class AppointmentController < ApplicationController
       apt.phone = phone_num
       apt.appointment_date = msg[3]
       apt.appointment_when = msg[2]
-      apt.template_id = current_user.templates.first.id
+      apt.template_id = current_user.company.templates.first.id
       apt.user_id = current_user.id
       apt.company_id = current_user.company_id
       apt.flag = 0

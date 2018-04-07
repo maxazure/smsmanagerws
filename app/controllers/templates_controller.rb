@@ -6,7 +6,7 @@ class TemplatesController < ApplicationController
   # GET /templates
   # GET /templates.json
   def index
-    @templates = current_user.templates
+    @templates = current_user.company.templates
   end
 
   # GET /templates/1
