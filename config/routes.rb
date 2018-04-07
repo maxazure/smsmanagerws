@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'user/index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'ws/getphone', to:'webservice#getphone'
   get 'ws/report', to:'webservice#report'
