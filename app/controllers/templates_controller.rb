@@ -1,12 +1,12 @@
 class TemplatesController < ApplicationController
   before_action :require_login
-  
+
   before_action :set_template, only: [:show, :edit, :update, :destroy]
 
   # GET /templates
   # GET /templates.json
   def index
-    @templates = Template.all
+    @templates = current_user.templates
   end
 
   # GET /templates/1
