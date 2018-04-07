@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
 
 
   config.model 'User' do
-    exclude_fields :created_at,:updated_at, :appointments, :templates, :username, :confirmation_token, :password, :password_confirmation
+    exclude_fields :created_at,:updated_at, :appointments, :templates, :username, :confirmation_token,  :password_confirmation
      list do
        exclude_fields :created_at,:updated_at, :appointments, :templates, :username, :confirmation_token
      end
