@@ -1,13 +1,24 @@
-<h1>SMS sending report<small>(unsend)</small></h1>
+<h1>SMS sending report<small> (unsend) </small></h1>
 
-<table>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Phone</th>
+    <th scope="col">When</th>
+    <th scope="col">Date</th>
+  </tr>
+</thead>
+<tbody>
 <% @appointment.each do |app| %>
   <tr>
+    <td><%= app.id %></td>
     <td><%= app.fullname %></td>
     <td><%= app.phone %></td>
     <td><%= app.appointment_when %></td>
     <td><%= app.appointment_date %></td>
-    <td><%= "unsend" if app.flag==0 %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
