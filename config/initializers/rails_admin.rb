@@ -1,5 +1,18 @@
 RailsAdmin.config do |config|
 
+config.parent_controller = "ApplicationController"
+
+  config.authorize_with do
+      unless !current_user.admin?
+        redirect_to(
+          main_app.root_path,
+          alert: "You are not permitted to view this page"
+        )
+      end
+    end
+
+    config.current_user_method { current_user }
+
 
   config.model 'User' do
     exclude_fields :created_at,:updated_at, :appointments, :templates,:confirmation_token, :password_confirmation
@@ -7,6 +20,23 @@ RailsAdmin.config do |config|
        exclude_fields :created_at,:updated_at, :appointments, :templates, :username, :confirmation_token
      end
    end
+
+   config.model 'Company' do
+     include_fields :id, :name
+    end
+
+    config.model 'Template' do
+      include_fields :id, :body, :company
+     end
+
+   config.model 'Appointment' do
+     list do
+        include_fields :phone,:created_at,:flag,:updated_at,:user
+        field :updated_at do
+          label "Sent at"
+        end
+      end
+    end
   ### Popular gems integration
 
   ## == Devise ==

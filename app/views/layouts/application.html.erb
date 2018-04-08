@@ -23,7 +23,16 @@
       <ul class="nav">
         <li class="nav-item">
           <%= link_to "BestIT" ,"http://www.bestit.co.nz" , class: "nav-link" %>
-        </li><li class="nav-item">
+        </li>
+
+        <% if signed_in? && current_user.admin? %>
+        <li class="nav-item">
+        <%= link_to "Admin" ,"/admin" , class: "nav-link" %>
+          </li>
+          <% end %>
+
+
+        <li class="nav-item">
         <%= link_to "Upload Data" ,"/appointment" , class: "nav-link" %>
           </li><li class="nav-item">
           <%= link_to "SMS Templates" ,"/templates" , class: "nav-link" %>
