@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'mypofile/index'
+
+  patch 'mypofile/update'
+
   get 'users/index'
 
   get 'user/index'
