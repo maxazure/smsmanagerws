@@ -3,7 +3,7 @@ class WebserviceController < ApplicationController
     @appointment = Appointment.where(flag: 0).first
     if @appointment.nil? then
       render plain: "{}"
-    elsif @appointment.appointment_when.nil? or @appointment.telnumber.nil? or @appointment.appointment_date.nil?
+    elsif @appointment.appointment_when.nil? or @appointment.appointment_date.nil?
       @appointment.flag = 1
       @appointment.save
       render plain: "{}"
