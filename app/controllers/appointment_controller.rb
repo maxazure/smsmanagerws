@@ -1,4 +1,3 @@
-
 class AppointmentController < ApplicationController
   before_action :require_login
   def index
@@ -13,7 +12,8 @@ class AppointmentController < ApplicationController
     uploaded_io = params[:phonedata]
     filename = Rails.root.join('public', 'uploads', getFileNameByTime())
 
-    record = addPhoneRecords uploaded_io.read.split("\n")
+
+    record = addPhoneRecords uploaded_io.read#.split("\n")
     @info ="#{record} records has been uploaded successfully!"
 
   end
@@ -21,14 +21,11 @@ class AppointmentController < ApplicationController
   def addPhoneRecords(records)
     str=""
     i=0
-    records.each do |record|
-      next if record.gsub(/\s+/,'').gsub(/,/,'').empty? or record.include? ",,"
-      next if record.gsub(/\s+/,'').gsub(/;/,'').empty? or record.include? ";;"
-      if record.include? ","
-        msg = record.gsub(/\r/,'').split ","
-      else
-        msg = record.gsub(/\r/,'').split ";"
-      end
+    csv = CSV.parse(records)
+
+    csv.each do |msg|
+      next if msg[0].nil? && msg[1].nil?
+
 
       phone_num = msg[1].gsub(/\s+/,'').gsub(/\A64/,'')
       phone_num = "0" + phone_num if phone_num[0,1] != 0

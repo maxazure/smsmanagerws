@@ -1,7 +1,7 @@
 class WebserviceController < ApplicationController
   def getphone
     @appointment = Appointment.where(flag: 0).first
-    if !@appointment.nil? then
+    if !@appointment.nil? and !@appointment.appointment_when.nil? and !@appointment.telnumber.nil? and !@appointment.appointment_date.nil? then
     @message_body = @appointment.template.body.gsub("{me}",@appointment.user.fullname)
     @message_body = @message_body.gsub("{my phone number}",@appointment.user.telnumber)
     @message_body = @message_body.gsub("{firstname}",@appointment.fullname)
