@@ -22,8 +22,13 @@ class AppointmentController < ApplicationController
     str=""
     i=0
     records.each do |record|
+      next if record.gsub(/\s+/,'').gsub(/,/,'').empty? or record.include? ",,"
       next if record.gsub(/\s+/,'').gsub(/;/,'').empty? or record.include? ";;"
-      msg = record.gsub(/\r/,'').split ";"
+      if record.include? ","
+        msg = record.gsub(/\r/,'').split ","
+      else
+        msg = record.gsub(/\r/,'').split ";"
+      end
 
       phone_num = msg[1].gsub(/\s+/,'').gsub(/\A64/,'')
       phone_num = "0" + phone_num if phone_num[0,1] != 0
