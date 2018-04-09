@@ -28,7 +28,7 @@ class AppointmentController < ApplicationController
 
 
       phone_num = msg[1].gsub(/\s+/,'').gsub(/\A64/,'')
-      phone_num = "0" + phone_num if phone_num[0,1] != 0
+      phone_num = "0" + phone_num if phone_num[0,1] != "0"
 
       apt = Appointment.new
       apt.fullname = msg[0]
