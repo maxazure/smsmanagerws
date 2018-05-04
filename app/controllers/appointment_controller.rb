@@ -25,6 +25,7 @@ class AppointmentController < ApplicationController
 
     csv.each do |msg|
       next if msg[0].nil? && msg[1].nil?
+      next if msg[1].nil?
 
 
       phone_num = msg[1].gsub(/\s+/,'').gsub(/\A64/,'')
