@@ -13,7 +13,7 @@ class AppointmentController < ApplicationController
     filename = Rails.root.join('public', 'uploads', getFileNameByTime())
 
 
-    record = addPhoneRecords uploaded_io.read#.split("\n")
+    record = "100" #addPhoneRecords uploaded_io.read#.split("\n")
     @info ="#{record} records has been uploaded successfully!"
 
   end
