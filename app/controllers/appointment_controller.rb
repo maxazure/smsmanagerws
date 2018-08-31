@@ -33,6 +33,7 @@ class AppointmentController < ApplicationController
 
       next if /\d{6,15}/.match(phone_num).nil?
 
+      phone_num = /\d{6,15}/.match(phone_num)[0]
 
       apt = Appointment.new
       apt.fullname = msg[0]
