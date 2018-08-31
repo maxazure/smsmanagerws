@@ -3,6 +3,10 @@
   Please Upload your Data CSV file.
 </div>
 <%= form_tag({action: :index}, multipart: true) do %>
+<div class="field">
+  <label for="user_telnumber">Schedule Time</label>
+  <input id="user_telnumber" type="text" value="Now" name="user[telnumber]" />
+</div>
   <%= file_field_tag 'phonedata' %>
   <%= submit_tag "Upload File" %>
 <% end %>
