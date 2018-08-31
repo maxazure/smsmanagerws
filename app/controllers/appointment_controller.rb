@@ -28,7 +28,7 @@ class AppointmentController < ApplicationController
       next if msg[1].nil?
 
 
-      phone_num = msg[1].gsub(/\s+/,'').gsub(/\A64/,'')
+      phone_num = msg[1].gsub(/\s+/,'').gsub(/\A[0,\+]64/,'').gsub(/\A0064/,'').gsub(/\A64/,'')
       phone_num = "0" + phone_num if phone_num[0,1] != "0"
 
       next if /\d{6,15}/.match(phone_num).nil?
