@@ -11,11 +11,11 @@ class WebserviceController < ApplicationController
 
     @message_body = @appointment.template.body.gsub("{me}",@appointment.user.fullname)
     @message_body = @message_body.gsub("{my phone number}",@appointment.user.telnumber)
-      unless @appointment.fullname.nil?
-        @message_body = @message_body.gsub("{firstname}",@appointment.fullname) 
-      else
-        @message_body = @message_body.gsub("{firstname}","")
-      end
+
+    @appointment.fullname ="" if @appointment.fullname.nil?
+
+    @message_body = @message_body.gsub("{firstname}",@appointment.fullname)
+
     @message_body = @message_body.gsub("{When}",@appointment.appointment_when)
     @message_body = @message_body.gsub("{Date}",@appointment.appointment_date)
 
