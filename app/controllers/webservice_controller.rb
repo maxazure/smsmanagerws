@@ -12,7 +12,7 @@ class WebserviceController < ApplicationController
     @message_body = @appointment.template.body.gsub("{me}",@appointment.user.fullname)
     @message_body = @message_body.gsub("{my phone number}",@appointment.user.telnumber)
 
-    @appointment.fullname ="" if @appointment.fullname.nil?
+  #  @appointment.fullname ="" if @appointment.fullname.nil?
 
     @message_body = @message_body.gsub("{firstname}",@appointment.fullname)
 
@@ -21,6 +21,7 @@ class WebserviceController < ApplicationController
 
     @appointment.flag = 2
     @appointment.save
+   end
 
   end
 
