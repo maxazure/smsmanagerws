@@ -15,14 +15,15 @@ class WebserviceController < ApplicationController
   #  @appointment.fullname ="" if @appointment.fullname.nil?
 
     @message_body = @message_body.gsub("{firstname}",@appointment.fullname)
-
     @message_body = @message_body.gsub("{When}",@appointment.appointment_when)
     @message_body = @message_body.gsub("{Date}",@appointment.appointment_date)
 
 #    @appointment.flag = 2
 #    @appointment.save
    end
-    render plain: "{111}"
+   respond_to do |format|
+    format.json { render json: @appointment }
+  end
   end
 
   def report
