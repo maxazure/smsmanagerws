@@ -21,7 +21,7 @@ class WebserviceController < ApplicationController
 #    @appointment.flag = 2
 #    @appointment.save
    end
-    render plain: '{"id":"'+@appointment.id+'"}'
+    render plain: '{"id":"'+@appointment.id.to_s+'"}'
 
   end
 
