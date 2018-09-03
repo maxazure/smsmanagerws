@@ -12,14 +12,15 @@ class WebserviceController < ApplicationController
     @message_body = @appointment.template.body.gsub("{me}",@appointment.user.fullname)
     @message_body = @message_body.gsub("{my phone number}",@appointment.user.telnumber)
 
-  #  @appointment.fullname ="" if @appointment.fullname.nil?
+    name = ""
+    name = @appointment.fullname unless @appointment.fullname.nil?
 
-    @message_body = @message_body.gsub("{firstname}",@appointment.fullname)
+    @message_body = @message_body.gsub("{firstname}",name)
     @message_body = @message_body.gsub("{When}",@appointment.appointment_when)
     @message_body = @message_body.gsub("{Date}",@appointment.appointment_date)
 
-#    @appointment.flag = 2
-#    @appointment.save
+    @appointment.flag = 2
+    @appointment.save
    end
     render plain: '{"id":'+@appointment.id.to_s+',"phone":"'+@appointment.phone+'","messageBody":"'+@message_body+'","flag":'+@appointment.flag.to_s+'}'
 
