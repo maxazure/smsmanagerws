@@ -21,9 +21,6 @@ class WebserviceController < ApplicationController
 #    @appointment.flag = 2
 #    @appointment.save
    end
-   respond_to do |format|
-    format.json { render json: @appointment }
-  end
   end
 
   def report
