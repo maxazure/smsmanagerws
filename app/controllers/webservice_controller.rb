@@ -19,8 +19,8 @@ class WebserviceController < ApplicationController
     @message_body = @message_body.gsub("{When}",@appointment.appointment_when)
     @message_body = @message_body.gsub("{Date}",@appointment.appointment_date)
 
-    @appointment.flag = 2
-    @appointment.save
+#    @appointment.flag = 2
+#    @appointment.save
    end
 
   end
