@@ -4,7 +4,14 @@ class AppointmentController < ApplicationController
   end
 
   def report
+
+
     @appointment = current_user.appointments.where(flag: 0).order(id: :desc).limit(650)
+  end
+
+  def delmsg
+      Appointment.delete_all(flag: 0)
+      redirect_to "appointment/report"
   end
 
 

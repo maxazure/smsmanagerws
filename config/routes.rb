@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'appointment', to: "appointment#upload"
 
   get 'appointment/report'
+  get 'appointment/delmsg'
 
   root to: "appointment#index"
 
