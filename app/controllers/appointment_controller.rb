@@ -14,7 +14,7 @@ class AppointmentController < ApplicationController
     # 所有记录指的是 未发送的信息
       Appointment.where(flag: 0).delete_all
       
-      redirect_to "appointment/report"
+      redirect_to "/appointment/report"
   end
 
 
